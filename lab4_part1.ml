@@ -53,11 +53,11 @@ as a temporary value pending your putting in appropriate ones.)
 
 module Math : MATH =
   struct
-    let pi = nan
-    let cos _ = nan
-    let sin _ = nan
-    let sum _ _ = nan
-    let max _ = None
+    let pi = 3.1415926
+    let cos x = cos x
+    let sin x = sin x
+    let sum x y = x +. y 
+    let max lst = if List.length lst = 0 then None else Some (List.fold_left (fun x y -> max x y) (List.hd lst) lst) 
   end ;;
 
 (*......................................................................
@@ -67,11 +67,18 @@ type float option. Name the resulting value `result`. (Do not use
 the `open` command for this exercise.)
 ......................................................................*)
 
-let result = Some nan ;;
+let result = Math.max ([Math.cos(Math.pi); Math.sin(Math.pi)]) ;;
 
 (*......................................................................
 Exercise 1C: Redo the computation from above, but use the `local open`
 syntax to write your computation in a more succinct manner.
 ......................................................................*)
+open Math;;
+let result_local_open = max[cos(pi); sin(pi)] ;;
 
-let result_local_open = Some nan ;;
+
+
+
+
+
+
