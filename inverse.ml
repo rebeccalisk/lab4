@@ -27,6 +27,6 @@ let eval n =
   then None
   else Some (1. /. float_of_int n) ;;
 
-(* exists -- Preeicate checks if n has a multiplicative inverse *)
+(* exists -- Predicate checks if n has a multiplicative inverse *)
 let exists n = 
   n <> 0 ;;
